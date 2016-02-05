@@ -14,7 +14,7 @@ EOF
 
 if [ -z "$DBNAME" ]; then
 
-  /bin/bash vault.sh "$1" "$2" "$3"
+  /bin/bash vault.sh "$@"
 
 else
 
@@ -30,9 +30,6 @@ else
 
   echo "> Generating backup for $DBHOST:$DBPORT/$DBSITE->$DBNAME"
   mysqldump -h "$DBHOST" -P "$DBPORT" -u "$DBUSER" --password="$DBPASS" "$DBNAME" > "$filename"
-
-  echo "> Vault synchronisation"
-  glacier vault sync --wait "$GLACIER_VAULT_NAME" &> /dev/null
 
   echo "> Sending backup to your vault '$GLACIER_VAULT_NAME'"
   glacier archive upload "$GLACIER_VAULT_NAME" "${filename}"

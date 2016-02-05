@@ -28,7 +28,6 @@ case "$action" in
     glacier archive retrieve --wait "$vaultName" "$archiveName"
     ;;
   *)
-    echo "Usage: $0 {create|list|backup-list|backup-delete|backup-retrieve}"
-    exit 1
+    glacier "$@"
     ;;
 esac
