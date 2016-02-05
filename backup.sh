@@ -12,7 +12,7 @@ aws_access_key_id = ${AWS_ACCESS_KEY_ID}
 aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}
 EOF
 
-if [ -z "$DBHOST" ]; then
+if [ -z "$DBNAME" ]; then
 
   /bin/bash vault.sh "$1" "$2" "$3"
 

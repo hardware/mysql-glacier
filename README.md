@@ -26,7 +26,7 @@ Inside your shell config file, add a new alias :
 alias glacier='docker run --rm -i \
   --env-file ~/.config/mysql-glacier/.aws \
   -v ~/.cache/glacier-cli:/root/.cache/glacier-cli \
-  mysql-glacier'
+  hardware/mysql-glacier'
 ```
 
 Create an `.aws` file with your AWS credentials, you’ll need retrieve your **Access Key ID**
@@ -88,7 +88,7 @@ docker run --rm -i \
   -e "DBSITE=myAwesomeWebsite" \
   -v ~/.cache/glacier-cli:/root/.cache/glacier-cli \
   --link mysqldb:mysqldb \
-  mysql-glacier
+  hardware/mysql-glacier
 
 > Generating backup for mysqldb:3306/myAwesomeWebsite->forum
 > Vault synchronisation
